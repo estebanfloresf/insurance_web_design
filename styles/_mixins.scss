@@ -1,0 +1,13 @@
+@mixin button($main, $alt_color) {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: $main;
+  border: 2px solid $main;
+  padding: 0.65em;
+  // flex-basis: 35%;
+  text-align: center;
+  &:hover {
+    background-color: $main;
+    color: $alt_color;
+  }
+}

@@ -1,0 +1,136 @@
+.container {
+  width: 100%;
+}
+
+header {
+  text-align: left;
+  position: relative;
+  z-index: 999;
+  // width: 100%;
+  max-width: 100%;
+  letter-spacing: 0.1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  padding: 1em;
+  height: 1em;
+}
+
+nav {
+  // display: none;
+  position: absolute;
+  text-align: right;
+  top: 3.5em;
+  left: 0em;
+  // margin-right: 1em;
+  background: $very_light_gray;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+  padding: 0.5em 0;
+
+  ul {
+    width: 95%;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: uppercase;
+    padding: 0 0.4em;
+    li {
+      margin-bottom: 1em;
+      margin-left: 1em;
+      color: $dark_grayish_violet;
+      &:hover {
+        color: $very_dark_violet;
+      }
+    }
+  }
+}
+
+.nav_toggle {
+  display: none;
+}
+.nav_toggle_label {
+  width: 10%;
+  height: auto;
+  text-align: center;
+  margin-right: 0.5em;
+}
+.nav_toggle_icon--close {
+  display: none;
+}
+
+.nav_toggle:checked {
+  & ~ nav {
+    // display: block;
+    transform: scale(1, 1);
+  }
+}
+
+@media only screen and (min-width: $screen-md) {
+}
+
+@media (min-width: $screen-lg) {
+  .wrapper {
+    margin: 0.3em auto;
+    height: auto;
+    width: 960px;
+    max-width: 960px; /* 2 */
+    position: relative;
+    padding-right: 10px; /* 3 */
+    padding-left: 10px; /* 3 */
+  }
+  .logo {
+    padding: 0;
+  }
+
+  .nav_toggle_label {
+    display: none;
+  }
+
+  header {
+    position: unset;
+    height: 5em;
+    min-height: 5em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    all: unset;
+    width: 50%;
+    ul {
+      padding: 0;
+      display: flex;
+      width: 100%;
+      // max-width: 35.5em;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 0.8em;
+      font-weight: 600;
+      li {
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-right: 1.15em;
+      }
+
+      .nav_list_plans {
+        @include button($very_dark_violet, $very_light_gray);
+        margin-right: 0em;
+      }
+    }
+  }
+}

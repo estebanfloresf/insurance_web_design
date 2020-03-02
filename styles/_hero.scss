@@ -1,0 +1,198 @@
+.hero {
+  // overflow: hidden;
+  // overflow-x: hidden;
+  width: 100%;
+  max-height: 43em;
+  height: 46em;
+  background-color: $dark_violet;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  margin: 0.5em 0;
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: calc(100% - 35em);
+    right: calc(100% - 120px);
+    height: 300px;
+    width: 8em;
+    background: url("../images/bg-pattern-intro-left-desktop.svg") bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &::after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: calc(100% - 6em);
+    left: calc(100% - 5em);
+    height: 250px;
+    width: 5em;
+    background: url("../images/bg-pattern-intro-right-mobile.svg") bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero_image {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  max-height: 70%;
+  width: 100%;
+  max-width: 100%;
+  background: url("../images/image-intro-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero__content {
+  z-index: 10;
+  position: relative;
+  top: 1em;
+  max-height: calc(100%-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  padding: 1.8em;
+  text-align: center;
+  .hero__content__title {
+    z-index: 10;
+    font-size: 2.3em;
+    color: white;
+    padding: 0.25em 0;
+  }
+  .hero__content__desc {
+    z-index: 10;
+    font-weight: lighter;
+    color: white;
+    // text-align: center;
+    line-height: 1.6em;
+    position: relative;
+  }
+  .hero__content__btn {
+    z-index: 10;
+    margin: 1.4em 0;
+    width: 8em;
+    @include button(white, white);
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .hero {
+    height: 40em;
+    max-height: 35em;
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__image {
+    background: url("../images/image-intro-tablet.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // background-attachment: fixed;
+  }
+  .hero__content__desc {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  $hero_img_width: 28em;
+  .hero {
+    height: 36em;
+
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    position: relative;
+    &::before {
+      z-index: 1;
+      content: "";
+      position: absolute;
+      top: calc(100% - 23em);
+      right: calc(100% - 12em);
+      height: 40em;
+      width: 12em;
+      background: url("../images/bg-pattern-intro-left-desktop.svg") bottom
+        center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &::after {
+      z-index: 6;
+      content: "";
+      position: absolute;
+      top: calc(100% - 35em);
+      left: calc(100% - 30em);
+      height: 30em;
+      width: 30em;
+      background: url("../images/bg-pattern-intro-right-desktop.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+  }
+  .hero__image {
+    z-index: 5;
+    position: absolute;
+    height: 100%;
+    max-height: 100%;
+    width: $hero_img_width;
+    max-width: $hero_img_width;
+    background: url("../images/image-intro-desktop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    top: 6em;
+    // right: 1em;
+    left: calc(960px + 0.5em - #{$hero_img_width});
+  }
+  .hero__content {
+    position: relative;
+
+    max-width: 50%;
+    padding: 0 0em;
+    height: 50%;
+    max-height: 100%;
+    align-items: flex-start;
+    text-align: left;
+    top: 10em;
+    .hero__content_title {
+      z-index: 5;
+      font-size: 4.2em;
+      line-height: 0.9;
+    }
+    .hero__content__desc,
+    .hero__content__btn {
+      position: relative;
+      z-index: 5;
+    }
+    &::before {
+      padding: 0;
+      margin: 0;
+
+      content: "";
+      width: 30%;
+      height: 1.1px; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+      background-color: white;
+      position: absolute;
+      left: 0em;
+      top: -4em;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.services {
+  //   min-height: 30em;
+  margin-top: 10em;
+  text-align: center;
+
+  h1 {
+    font-size: 2.3em;
+    color: $dark_violet;
+    position: relative;
+    margin: 1em auto;
+    &::before {
+      padding: 0;
+      margin: 0;
+
+      content: "";
+      width: 3em;
+      height: 1.1px; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+      background-color: $dark_violet;
+      position: absolute;
+      left: 35%;
+      top: -0.9em;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .list__card {
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .list__card__img {
+    width: 5em;
+    height: auto;
+    margin: 1em auto;
+  }
+  .list__card__title {
+    font-size: 1.5em;
+    line-height: 1.1em;
+    margin: 1em auto;
+  }
+  .list__card__desc {
+    // font-size: 1.5em;
+    line-height: 1.5em;
+    color: $dark_grayish_violet;
+    // margin: 1em auto;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .services {
+    margin-top: 25em;
+    text-align: left;
+    padding: 0 1em;
+    h1 {
+      font-size: 4.2em;
+      &::before {
+        width: 2.5em;
+        left: 0%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .services {
+    margin-top: 18em;
+
+    min-height: 30em;
+    h1 {
+      margin: 0.6em auto;
+    }
+    .list {
+      width: 100%;
+      flex-direction: row;
+    }
+    .list__card {
+      flex-basis: 32%;
+      min-height: 15em;
+      height: 5em;
+      justify-content: start;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .list__card__title,
+    .list__card__img {
+      margin: 1em 0;
+    }
+  }
+}

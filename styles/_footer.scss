@@ -1,0 +1,134 @@
+footer {
+  overflow: auto;
+  //   height: 10em;
+  //   min-height: 20em;
+  background-color: $very_light_gray;
+  position: relative;
+  &::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    height: 12em;
+    width: 100%;
+    // max-width: 90%;
+    background: url("../images/bg-pattern-footer-mobile.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .wrapper {
+    z-index: 5;
+  }
+}
+
+.footer__top {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  margin: 2em auto;
+  height: 9.5em;
+  min-height: 5em;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  &::after {
+    padding: 0;
+    margin: 0;
+    content: "";
+    width: 80%;
+    height: 1.1px;
+    background-color: #ddd;
+    position: absolute;
+    left: 10%;
+    top: 110%;
+  }
+}
+.footer__top__logo {
+  width: 8em;
+  padding: 1em;
+  height: 1em;
+}
+.footer__top__social {
+  img {
+    margin: 0 0.5em;
+  }
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+.footer__links__col {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  ul {
+    li {
+      margin: 0.6em auto;
+      color: $very_dark_violet;
+      line-height: 1.275em;
+    }
+  }
+}
+.footer__links__col__title {
+  margin: 1.8em auto;
+  color: $dark_grayish_violet;
+}
+
+@media only screen and (min-width: $screen-md) {
+  footer {
+    &::before {
+      position: absolute;
+      z-index: 1;
+      content: "";
+      height: 12em;
+      width: 100%;
+      // max-width: 90%;
+      background: url("../images/bg-pattern-footer-desktop.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  .footer__top {
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    margin: 1em auto;
+    height: 3em;
+    // min-height: 5em;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    &::after {
+      padding: 0;
+      margin: 0;
+      content: "";
+      width: 100%;
+      height: 1.1px;
+      background-color: #ddd;
+      position: absolute;
+      left: 0;
+      top: 110%;
+    }
+  }
+  .footer__links {
+    flex-direction: row;
+  }
+  .footer__links__col {
+    text-align: left;
+    min-height: 20em;
+  }
+  .footer__links__col__title {
+    margin: 1.8em 0;
+  }
+}
